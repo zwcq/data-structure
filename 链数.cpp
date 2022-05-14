@@ -158,26 +158,66 @@ void find_inorder_post(bitree tree)
     }
 }
 
+bitnode * bst_find(bitree tree, int key)
+{
+    while(tree != NULL)
+    {
+        if(tree->val == key)
+            return tree;
+        else if(key > tree->val)
+            tree = tree->rchild;
+        else
+            tree = tree->lchild;
+    }
+    return tree;
+}
+int find_1_count = 0;
+bitnode *find_1 = NULL;
+void bst_find_1(bitree tree, int key)
+{
+    if(tree != NULL)
+    {
+        find_1_count++;
+        printf("%d-%d\n", find_1_count, tree->val);
+        if(tree->val == key && find_1_count <=7)
+        {
+            find_1 = tree;
+            // printf("test-%d\n", tree->val);
+        }
+        if(key < tree->val)
+            bst_find_1(tree->lchild, key);
+        else
+            bst_find_1(tree->rchild, key);
+    }
+}
+
 int main()
 {
     bitree tree;
     queue q;
     q.front = q.rear = 0;
     int a[15] = {1, 2, 4, 999, 999, 5, 999, 999, 3, 6, 999, 999, 7, 999, 999};
-    set_tree_preorder(tree, a);
+    int up[15] = {4, 2, 1, 999, 999, 3, 999, 999, 6, 5, 999, 999, 7, 999, 999};
+    set_tree_preorder(tree, up);
     // printf("%dqqq\n", tree);
     // printf("%d-test\n", tree->val);
     // print_tree_ceng(tree, q);
     // print_tree_preorder(tree);
     // printf("\n");
-    // print_tree_inorder(tree);
-    // printf("\n");
+    print_tree_inorder(tree);
+    printf("\n");
     // print_tree_postorder(tree);
     // printf("\n");
     // printf("%d-%d\n", tree->val, p->val);
-    find_inorder_pre(tree);
-    printf("%d-%d\n", fin->val, p->val);
-    find_inorder_post(tree);
-    printf("%d-%d\n", fin_p->val, p->val);
+    // find_inorder_pre(tree);
+    // printf("%d-%d\n", fin->val, p->val);
+    // find_inorder_post(tree);
+    // printf("%d-%d\n", fin_p->val, p->val);
+    bitnode *find = bst_find(tree, 8);
+    bst_find_1(tree, 8);
+    if(find_1 != NULL)
+        printf("找到了，%d\n", find_1->val);
+    else 
+        printf("没找到\n");
     return 0;
 }

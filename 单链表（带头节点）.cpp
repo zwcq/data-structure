@@ -218,7 +218,6 @@ void list_reverse1(LinkList &L)//原地逆置。空间复杂度为o（1）
     }
 }
 
-
 void reverse_print(LinkList L)//递归的方式，逆序输出，没有改变原有链表结构
 {
     if(L->next == NULL)
