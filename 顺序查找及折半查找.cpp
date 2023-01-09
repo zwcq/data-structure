@@ -35,7 +35,7 @@ int main()
     int len = sizeof(a) / sizeof(int);
     int len1 = sizeof(up) / sizeof(int);
     printf("%d\n", search_seq(a, 1203, len));
-    printf("%d\n", banary_sreach(up, 12, len));
+    printf("%d\n", banary_sreach(up, 12, len1));
     return 0;
 }
 
