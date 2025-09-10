@@ -1,0 +1,113 @@
+Electrode Array Visualization
+============================================================
+Grid dimensions: 4 × 21
+Total electrodes: 62
+
+Electrode Layout:
+----------------------------------------
+      0   1   2   3
+ 0 [R1][R2][R3][R4]
+ 1 (P1_)(P1_)(P2_)(P2_)
+ 2                 
+ 3  C1  C2  C3     
+ 4  C4  C5  C6     
+ 5  C7  C8  C9     
+ 6  C10  C11  C12     
+ 7  C13  C14  C15     
+ 8  C16  C17  C18     
+ 9  C19  C20  C21     
+10  C22  C23  C24     
+11  C25  C26  C27     
+12  C28  C29  C30     
+13  C31  C32  C33     
+14  C34  C35  C36     
+15  C37  C38  C39     
+16  C40  C41  C42     
+17  C43  C44  C45     
+18  C46  C47  C48     
+19  C49  C50  C51     
+20  C52  C53  C54     
+
+Legend:
+  [Rx]  - Independent electrodes (reservoir)
+  (Px)  - Parallel electrodes (reservoir)
+   Cx   - Channel electrodes (18×3 matrix)
+
+Electrode Summary:
+--------------------
+Independent: 4 electrodes
+  IDs: R1, R2, R3, R4
+Parallel: 4 electrodes
+  Group P1: P1_1, P1_2
+  Group P2: P2_1, P2_2
+Channel: 54 electrodes
+  Matrix: 18 rows × 3 columns (C1 to C54)
+
+Configuration Details:
+-------------------------
+Electrode size: 30px
+Electrode spacing: 40px
+Grid margin: 50px
+
+Color scheme:
+  normal: #E0E0E0
+  active: #FF6B6B
+  independent: #4ECDC4
+  parallel: #45B7D1
+  background: #F8F9FA
+  grid_line: #DEE2E6
+  text: #495057
+
+Interaction enabled: True
+Window title: Electrode Array Visualization
+
+============================================================
+Electrode State Demonstration
+============================================================
+Initial state: All electrodes normal
+
+Simulating electrode interactions:
+-----------------------------------
+1. Click electrode R1 (independent)
+   → R1 becomes active (red)
+
+2. Click electrode P1_1 (parallel group)
+   → P1_1 and P1_2 both become active (synchronized)
+
+3. Click electrode C10 (channel)
+   → C10 becomes active (individual)
+
+Parallel electrode behavior:
+- Clicking any electrode in a parallel group toggles the entire group
+- This ensures synchronized control of related electrodes
+
+Color coding:
+  🔵 Blue - Parallel electrodes (normal state)
+  🟢 Teal - Independent electrodes (normal state)
+  ⚪ Gray - Channel electrodes (normal state)
+  🔴 Red  - Any electrode in active state
+
+============================================================
+Application Features
+============================================================
+  ✅ YAML Configuration Parsing
+  ✅ PyQt6 GUI with QPainter rendering
+  ✅ Interactive electrode clicking
+  ✅ Real-time state visualization
+  ✅ Parallel electrode synchronization
+  ✅ 18×3 channel matrix support
+  ✅ Color-coded electrode types
+  ✅ Modular, extensible architecture
+  ✅ Comprehensive testing suite
+  ✅ Detailed documentation
+
+Technical Specifications:
+-------------------------
+• Total Electrodes: 62
+  - 4 Independent (R1-R4)
+  - 4 Parallel in 2 groups (P1: P1_1,P1_2 | P2: P2_1,P2_2)
+  - 54 Channel in 18×3 matrix (C1-C54)
+• Framework: PyQt6
+• Configuration: YAML
+• Rendering: QPainter
+• Testing: unittest + custom test suites
