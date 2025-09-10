@@ -1,0 +1,70 @@
+# Electrode Array Configuration
+# Defines the layout and properties of electrode arrays
+
+# Reservoir configuration
+reservoir:
+  # Independent electrodes in reservoir area
+  independent_electrodes:
+    - id: R1
+      position: [0, 0]
+      type: independent
+    - id: R2
+      position: [1, 0]
+      type: independent
+    - id: R3
+      position: [2, 0]
+      type: independent
+    - id: R4
+      position: [3, 0]
+      type: independent
+  
+  # Parallel electrode groups in reservoir area
+  parallel_electrodes:
+    - group_id: P1
+      electrodes:
+        - id: P1_1
+          position: [0, 1]
+        - id: P1_2
+          position: [1, 1]
+      type: parallel
+    - group_id: P2
+      electrodes:
+        - id: P2_1
+          position: [2, 1]
+        - id: P2_2
+          position: [3, 1]
+      type: parallel
+
+# Channel configuration - 18 rows x 3 columns matrix
+channels:
+  rows: 18
+  columns: 3
+  start_position: [0, 3]  # Starting position for channel matrix
+  electrode_prefix: C  # Prefix for channel electrode IDs
+  
+  # Channel electrode numbering starts from C1 and goes row by row
+  # C1, C2, C3 (first row)
+  # C4, C5, C6 (second row)
+  # ... up to C54 (18th row, 3rd column)
+
+# Visual properties
+visual:
+  electrode_size: 30  # Electrode diameter in pixels
+  electrode_spacing: 40  # Spacing between electrodes
+  grid_margin: 50  # Margin around the grid
+  
+  # Colors
+  colors:
+    normal: "#E0E0E0"      # Normal electrode color (light gray)
+    active: "#FF6B6B"      # Active electrode color (red)
+    independent: "#4ECDC4" # Independent electrode color (teal)
+    parallel: "#45B7D1"    # Parallel electrode color (blue)
+    background: "#F8F9FA"  # Background color
+    grid_line: "#DEE2E6"   # Grid line color
+    text: "#495057"        # Text color
+
+# Application settings
+settings:
+  window_title: "Electrode Array Visualization"
+  window_size: [800, 600]
+  click_interaction: true  # Enable click to change electrode state
